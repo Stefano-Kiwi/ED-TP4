@@ -1,5 +1,7 @@
 package Ejercicio1;
 
+import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.NodoArbolBinario;
+
 /**
  *
  * @author stefa
