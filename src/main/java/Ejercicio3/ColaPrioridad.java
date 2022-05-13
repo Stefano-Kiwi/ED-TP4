@@ -1,8 +1,8 @@
 package Ejercicio3;
 
-public class ColaPrioridad<T> implements ColaPrioridadInterfaz<Comparable<T>>{
+public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInterfaz<T>{
 
-    
+    @Override
     public void insert(T element) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -27,9 +27,5 @@ public class ColaPrioridad<T> implements ColaPrioridadInterfaz<Comparable<T>>{
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    @Override
-    public void insert(Comparable<T> element) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+   
 }

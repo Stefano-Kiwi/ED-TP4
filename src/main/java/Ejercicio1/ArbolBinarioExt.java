@@ -1,6 +1,7 @@
 package Ejercicio1;
 
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.NodoArbolBinario;
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
 
 public class ArbolBinarioExt<T> implements ArbolBinarioExtInterfaz<T> {
 
@@ -15,18 +16,18 @@ public class ArbolBinarioExt<T> implements ArbolBinarioExtInterfaz<T> {
     }
 
     @Override
-    public Object hojas() {
+    public ListaEnlazadaNoOrdenada<T> hojas() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Object internos() {
+    public ListaEnlazadaNoOrdenada<T> internos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public Object nivel(int nivel) {
+    public ListaEnlazadaNoOrdenada<T> nivel(int nivel) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
 }

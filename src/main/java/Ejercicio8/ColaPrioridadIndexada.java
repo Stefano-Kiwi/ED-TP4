@@ -4,15 +4,15 @@ package Ejercicio8;
  *
  * @author stefa
  */
-public class ColaPrioridadIndexada<T> implements ColaPrioridadIndexadaInterfaz<Comparable<T>>{
+public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrioridadIndexadaInterfaz<T>{
 
     @Override
-    public void insert(int indice, Comparable<T> item) {
+    public void insert(int indice, T item) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public void change(int indice, Comparable<T> item) {
+    public void change(int indice, T item) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -27,7 +27,7 @@ public class ColaPrioridadIndexada<T> implements ColaPrioridadIndexadaInterfaz<C
     }
 
     @Override
-    public Comparable<T> min() {
+    public T min() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -45,5 +45,6 @@ public class ColaPrioridadIndexada<T> implements ColaPrioridadIndexadaInterfaz<C
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     
 }
