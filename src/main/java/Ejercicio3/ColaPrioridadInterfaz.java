@@ -6,7 +6,7 @@ package Ejercicio3;
  */
 public interface ColaPrioridadInterfaz <T extends Comparable<T>>{
     /** Inserta un elemento en la estructura. */
-    public void insert(T element);
+    public void insert(int prioridad,T element);
     /** Devuelve el elemento con máximo valor de clave. */
     public T max();
     /** Elimina el elemento con máximo valor de clave. */
