@@ -1,18 +1,29 @@
 package Ejercicio1;
 
+import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.ArbolBinario;
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.NodoArbolBinario;
 import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import ar.edu.uner.fcad.ed.edlineales.iteradores.Iterador;
 
-public class ArbolBinarioExt<T> implements ArbolBinarioExtInterfaz<T> {
+public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioExtInterfaz<T> {
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int size = 0;
+        Iterador<T> iterador = iteradorPreorden();
+        while(iterador.existeSiguiente()==true){
+            size++;
+            iterador.siguiente();
+        }
+        return size;
     }
 
     @Override
     public boolean hermanos(NodoArbolBinario<T> nodo1, NodoArbolBinario<T> nodo2) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        boolean hermanos = false;
+        
+        
+        
     }
 
     @Override
