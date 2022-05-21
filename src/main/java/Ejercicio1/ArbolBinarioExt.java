@@ -40,8 +40,6 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
        } // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
        if (padre1 == null) {
             resultado=raiz;
-     Derecho:
-       {
        while(resultado.tieneHijoDerecho()){
            aux=resultado.getHijoIzquierdo();
            if(aux.equals(nodo1) || aux.equals(nodo2)){
@@ -61,7 +59,6 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
          }  
         }
        }     
-     }
        if(ayuda=true && padre1.tieneHijoDerecho()){
            if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
            hermanos = true;    
