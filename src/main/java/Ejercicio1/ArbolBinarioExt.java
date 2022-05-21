@@ -3,6 +3,7 @@ package Ejercicio1;
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.ArbolBinario;
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.NodoArbolBinario;
 import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 import ar.edu.uner.fcad.ed.edlineales.iteradores.Iterador;
 
 public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioExtInterfaz<T> {
@@ -21,14 +22,55 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
     @Override
     public boolean hermanos(NodoArbolBinario<T> nodo1, NodoArbolBinario<T> nodo2) {
         boolean hermanos = false;
-       ArbolBinario<T> res1 = null;
-       ArbolBinario<T> res2 = null;
-       if(res1.padre(nodo1).equals(res2.padre(nodo2))) {  
-            hermanos = true;
-            return hermanos;
+       NodoArbolBinario<T> aux = null;       
+       NodoArbolBinario<T> padre1 = null;
+       boolean ayuda = false;
+       NodoArbolBinario<T> resultado = raiz;
+        
+       Izquierdo :
+       {
+       while(resultado.tieneHijoIzquierdo()){
+           aux=resultado.getHijoIzquierdo();
+           if(aux.equals(nodo1) || aux.equals(nodo2)){
+           padre1=resultado;
+           ayuda = true;
+           break;
+           }
+           resultado=resultado.getHijoIzquierdo();
        }
+       if (padre1 == null) {
+            resultado=raiz;
+     Derecho :
+       {
+       while(resultado.tieneHijoDerecho()){
+           aux=resultado.getHijoDerecho();
+           if(aux.equals(nodo2) || aux.equals(nodo1)){
+           padre1=resultado;
+           ayuda = true;
+           break;
+           }
+           resultado=resultado.getHijoDerecho();
+       }
+       if(ayuda=true && padre1.tieneHijoIzquierdo()){
+          if(padre1.getHijoIzquierdo().equals(nodo2) || padre1.getHijoIzquierdo().equals(nodo1)){
+           return true;
+           } 
+         }  
+        }
+       }     
+       }
+       if(ayuda=true && padre1.tieneHijoDerecho()){
+           if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
+           hermanos = true;    
+           }
+       }
+       
+       
+       
+       
         return hermanos;
     }
+       
 
     @Override
     public ListaEnlazadaNoOrdenada<T> hojas() {
