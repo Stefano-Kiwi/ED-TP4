@@ -32,7 +32,7 @@ public class ArbolBinarioExtCliente {
         System.out.println(arbolito);
         System.out.println("Size: "+arbolito.size());
         System.out.println("RAIZ: "+arbolito.raiz());
-        System.out.println("Hermanos: "+arbolito.hermanos(nodo7, nodo2));
+        System.out.println("Hermanos: "+arbolito.hermanos(nodo2, nodo3));
     }
 }
          
