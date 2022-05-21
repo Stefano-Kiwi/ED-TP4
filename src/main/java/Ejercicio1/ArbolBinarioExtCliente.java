@@ -29,10 +29,11 @@ public class ArbolBinarioExtCliente {
         arbolito.agregarHijoDerecho(nodo2, nodo5);
         arbolito.agregarHijoIzquierdo(nodo3, nodo6);
         arbolito.agregarHijoDerecho(nodo3, nodo7);
+        
         System.out.println(arbolito);
         System.out.println("Size: "+arbolito.size());
         System.out.println("RAIZ: "+arbolito.raiz());
-        System.out.println("Hermanos: "+arbolito.hermanos(nodo2, nodo3));
+        System.out.println("Hermanos: "+arbolito.hermanos(nodo7, nodo2));
     }
 }
          

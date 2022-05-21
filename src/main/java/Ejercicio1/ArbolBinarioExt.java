@@ -27,7 +27,7 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
        boolean ayuda = false;
        NodoArbolBinario<T> resultado = raiz;
         
-       Izquierdo :
+       Izquierdo:
        {
        while(resultado.tieneHijoIzquierdo()){
            aux=resultado.getHijoIzquierdo();
@@ -37,38 +37,37 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
            break;
            }
            resultado=resultado.getHijoIzquierdo();
-       }
+       } // AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
        if (padre1 == null) {
             resultado=raiz;
-     Derecho :
+     Derecho:
        {
        while(resultado.tieneHijoDerecho()){
-           aux=resultado.getHijoDerecho();
-           if(aux.equals(nodo2) || aux.equals(nodo1)){
+           aux=resultado.getHijoIzquierdo();
+           if(aux.equals(nodo1) || aux.equals(nodo2)){
            padre1=resultado;
            ayuda = true;
            break;
            }
            resultado=resultado.getHijoDerecho();
        }
-       if(ayuda=true && padre1.tieneHijoIzquierdo()){
-          if(padre1.getHijoIzquierdo().equals(nodo2) || padre1.getHijoIzquierdo().equals(nodo1)){
+       if (padre1 == null) {
+               return false;
+           }
+       if(ayuda=true && padre1.tieneHijoDerecho()){
+          if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
            return true;
            } 
          }  
         }
        }     
-       }
+     }
        if(ayuda=true && padre1.tieneHijoDerecho()){
            if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
            hermanos = true;    
            }
        }
-       
-       
-       
-       
-        return hermanos;
+       return hermanos;
     }
        
 
