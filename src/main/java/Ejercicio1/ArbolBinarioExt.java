@@ -70,17 +70,49 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
 
     @Override
     public ListaEnlazadaNoOrdenada<T> hojas() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ListaEnlazadaNoOrdenada<T> hojas = new ListaEnlazadaNoOrdenada();
+        ListaEnlazadaNoOrdenada<NodoArbolBinario<T>> aux = new ListaEnlazadaNoOrdenada();
+        
+        aux.addToFront(raiz);
+        while(!aux.isEmpty()){ // Mientras la lista aux todavia tenga elementos
+            if(aux.first().getCantidadHijos()==0){
+                hojas.addToRear(aux.first().getValor());
+            }
+            if(aux.first().tieneHijoIzquierdo()){
+                aux.addToRear(aux.first().getHijoIzquierdo());
+            }
+            if(aux.first().tieneHijoIzquierdo()){
+                aux.addToRear(aux.first().getHijoDerecho());
+            }
+            aux.removeFirst();
+        }
+        return hojas;
     }
 
     @Override
     public ListaEnlazadaNoOrdenada<T> internos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ListaEnlazadaNoOrdenada<T> internos = new ListaEnlazadaNoOrdenada();
+        ListaEnlazadaNoOrdenada<NodoArbolBinario<T>> aux = new ListaEnlazadaNoOrdenada();
+        
+        aux.addToFront(raiz);
+        while(!aux.isEmpty()){ 
+            if(aux.first()!= this.raiz && (aux.first().tieneHijoIzquierdo() || aux.first().tieneHijoDerecho())){
+                internos.addToRear(aux.first().getValor());
+            }
+            if(aux.first().tieneHijoIzquierdo()){
+                aux.addToRear(aux.first().getHijoIzquierdo());
+            }
+            if(aux.first().tieneHijoIzquierdo()){
+                aux.addToRear(aux.first().getHijoDerecho());
+            }
+            aux.removeFirst();
+        }
+        return internos;
     }
 
     @Override
     public ListaEnlazadaNoOrdenada<T> nivel(int nivel) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return null;
     }
 
 }
