@@ -83,7 +83,7 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
             if(aux.first().tieneHijoIzquierdo()){
                 aux.addToRear(aux.first().getHijoIzquierdo());
             }
-            if(aux.first().tieneHijoIzquierdo()){
+            if(aux.first().tieneHijo()){
                 aux.addToRear(aux.first().getHijoDerecho());
             }
             aux.removeFirst();
