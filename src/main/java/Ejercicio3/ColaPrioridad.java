@@ -1,20 +1,27 @@
 package Ejercicio3;
 
-import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaOrdenada;
 import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 
 
 public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInterfaz<T>{
-    protected ListaEnlazadaNoOrdenada<ColaPorEnlaces> lista = new ListaEnlazadaNoOrdenada<ColaPorEnlaces>(); 
+    protected ListaEnlazadaOrdenada<ColaElementoColaPrioridad<T>> lista = new ListaEnlazadaOrdenada<>(); 
     
     @Override
     public void insert(int prioridad, T element) {
-    if(lista.isEmpty()){
-        ColaPorEnlaces cola = new ColaPorEnlaces();
-        cola.enqueue(element);
-        lista.addToFront(cola);
-    }
-    
+    boolean existePrioridad = false;
+        for (int i = 0; i < lista.size(); i++) {
+            if (this.lista.get(i).getPrioridad() == prioridad) {
+                this.lista.get(i).getCola().enqueue(element);
+                existePrioridad = true;
+                break;
+            }
+        }
+        if(!existePrioridad){
+            ColaPorEnlaces<T> nuevaCola = new ColaPorEnlaces<T>();
+            nuevaCola.enqueue(element);
+            lista.add(new ColaElementoColaPrioridad(prioridad, nuevaCola));
+        }
     }
 
     @Override
@@ -29,12 +36,12 @@ public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInte
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return lista.isEmpty();
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return lista.size();
     }
 
    

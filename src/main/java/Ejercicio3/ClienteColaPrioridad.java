@@ -11,8 +11,14 @@ package Ejercicio3;
 public class ClienteColaPrioridad {
     public static void main(String[] args) {
         ColaPrioridad cola = new ColaPrioridad();
+        System.out.println("Esta vacia? "+ cola.isEmpty());
         cola.insert(10, "arbol");
+        System.out.println("Esta vacia? "+ cola.isEmpty());
+        
+        
         
     }
+    
+    
     
 }
