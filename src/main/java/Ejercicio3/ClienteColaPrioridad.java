@@ -10,6 +10,8 @@ package Ejercicio3;
  */
 public class ClienteColaPrioridad {
     public static void main(String[] args) {
+        ColaPrioridad cola = new ColaPrioridad();
+        cola.insert(10, "arbol");
         
     }
     

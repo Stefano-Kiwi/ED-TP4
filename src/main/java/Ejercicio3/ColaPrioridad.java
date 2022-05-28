@@ -1,10 +1,20 @@
 package Ejercicio3;
 
-public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInterfaz<T>{
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 
+
+public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInterfaz<T>{
+    protected ListaEnlazadaNoOrdenada<ColaPorEnlaces> lista = new ListaEnlazadaNoOrdenada<ColaPorEnlaces>(); 
+    
     @Override
     public void insert(int prioridad, T element) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    if(lista.isEmpty()){
+        ColaPorEnlaces cola = new ColaPorEnlaces();
+        cola.enqueue(element);
+        lista.addToFront(cola);
+    }
+    
     }
 
     @Override
@@ -14,7 +24,7 @@ public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInte
 
     @Override
     public void deleteMax() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+
     }
 
     @Override
