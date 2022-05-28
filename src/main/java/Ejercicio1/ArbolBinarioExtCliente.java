@@ -29,7 +29,8 @@ public class ArbolBinarioExtCliente {
         NodoArbolBinario<Integer> nodo13 = new NodoArbolBinario<Integer>(13);
         NodoArbolBinario<Integer> nodo14 = new NodoArbolBinario<Integer>(14);
         NodoArbolBinario<Integer> nodo15 = new NodoArbolBinario<Integer>(15);
-        
+        NodoArbolBinario<Integer> nodo16 = new NodoArbolBinario<Integer>(16);
+
         arbolito.agregarHijoIzquierdo(null, nodo1);
         
         arbolito.agregarHijoIzquierdo(nodo1, nodo2);
@@ -41,7 +42,7 @@ public class ArbolBinarioExtCliente {
         arbolito.agregarHijoIzquierdo(nodo3, nodo6);
         arbolito.agregarHijoDerecho(nodo3, nodo7);
 
-        arbolito.agregarHijoIzquierdo(nodo4, nodo8);
+       arbolito.agregarHijoIzquierdo(nodo4, nodo8);
         arbolito.agregarHijoDerecho(nodo4, nodo9);
 
         arbolito.agregarHijoIzquierdo(nodo5, nodo10);
@@ -53,13 +54,17 @@ public class ArbolBinarioExtCliente {
         arbolito.agregarHijoIzquierdo(nodo7, nodo14);
         arbolito.agregarHijoDerecho(nodo7, nodo15);
         
+         arbolito.agregarHijoDerecho(nodo15, nodo16);
+        
+        
         System.out.println("ARBOL: "+arbolito);
         System.out.println("Size: "+arbolito.size());
         System.out.println("RAIZ: "+arbolito.raiz());
-        System.out.println("Hermanos: "+arbolito.hermanos(arbolito.padre(nodo2),arbolito.padre(nodo3)));
+        System.out.println("Hermanos: "+arbolito.hermanos(arbolito.padre(nodo2),arbolito.padre(nodo15)));
         System.out.println("Nodos hojas: "+arbolito.hojas());
         System.out.println("Nodos internos: "+arbolito.internos());
-        System.out.println("Nodos en el nivel 2: "+arbolito.nivel(2));
+        System.out.println("Nodos en el nivel 3: "+arbolito.nivel(3));
+
     }
 }
          
