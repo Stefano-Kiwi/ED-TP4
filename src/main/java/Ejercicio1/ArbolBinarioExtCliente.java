@@ -56,7 +56,7 @@ public class ArbolBinarioExtCliente {
         System.out.println("ARBOL: "+arbolito);
         System.out.println("Size: "+arbolito.size());
         System.out.println("RAIZ: "+arbolito.raiz());
-        System.out.println("Hermanos: "+arbolito.hermanos(nodo2, nodo3));
+        System.out.println("Hermanos: "+arbolito.hermanos(arbolito.padre(nodo2),arbolito.padre(nodo3)));
         System.out.println("Nodos hojas: "+arbolito.hojas());
         System.out.println("Nodos internos: "+arbolito.internos());
         System.out.println("Nodos en el nivel 2: "+arbolito.nivel(2));
