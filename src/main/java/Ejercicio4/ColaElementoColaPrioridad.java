@@ -60,7 +60,7 @@ public class ColaElementoColaPrioridad<T> implements Comparable<ColaElementoCola
 
     @Override
     public String toString() {
-        return "ColaElementoColaPrioridad{" + "prioridad=" + prioridad + ", cola=" + cola + '}';
+        return "ColaElementoColaPrioridad{" + "prioridad=" + prioridad + ", cola=" + cola + '}'+"\n";
     }
    
    
