@@ -23,51 +23,8 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
     public boolean hermanos(NodoArbolBinario<T> nodo1, NodoArbolBinario<T> nodo2) {
         boolean hermano = false;
         if (nodo1.equals(nodo2)){
-            return hermano = true;
-//       NodoArbolBinario<T> aux = null;
-//       NodoArbolBinario<T> aux2 = null;              
-//       NodoArbolBinario<T> padre1 = null;
-//       boolean ayuda = false;
-//       NodoArbolBinario<T> resultado = raiz;
-//        
-//       Izquierdo:
-//       {
-//       while(resultado.tieneHijoIzquierdo()){
-//           aux=resultado.getHijoIzquierdo();
-//           if(aux.equals(nodo1) || aux.equals(nodo2)){
-//           padre1=resultado;
-//           ayuda = true;
-//           break;
-//           }
-//           resultado=resultado.getHijoIzquierdo();
-//       }
-//       }
-//       if (padre1 == null) {
-//            resultado=raiz;
-//       while(resultado.tieneHijoDerecho()){
-//           aux=resultado.getHijoIzquierdo();
-//           if(aux.equals(nodo1) || aux.equals(nodo2)){
-//           padre1=resultado;
-//           ayuda = true;
-//           break;
-//           }
-//           resultado=resultado.getHijoDerecho();
-//       }
-//       if (padre1 == null) {
-//               return false;
-//           }
-//       if(ayuda=true && padre1.tieneHijoDerecho()){
-//          if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
-//           return true;
-//           } 
-//         }  
-//        
-//       }     
-//       if(ayuda=true && padre1.tieneHijoDerecho()){
-//           if(padre1.getHijoDerecho().equals(nodo2) || padre1.getHijoDerecho().equals(nodo1)){
-//           hermanos = true;    
-//           }
-       }
+            hermano = true;
+        {
        return hermano;
     }
        
@@ -106,17 +63,59 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
             if(aux.first().tieneHijoIzquierdo()){
                 aux.addToRear(aux.first().getHijoIzquierdo());
             }
-            if(aux.first().tieneHijoIzquierdo()){
+            if(aux.first().tieneHijoDerecho()){
                 aux.addToRear(aux.first().getHijoDerecho());
             }
             aux.removeFirst();
         }
         return internos;
     }
+    
 
     @Override
     public ListaEnlazadaNoOrdenada<T> nivel(int nivel) {
-        return null;
+      ListaEnlazadaNoOrdenada<NodoArbolBinario> arbol = new ListaEnlazadaNoOrdenada();
+        ListaEnlazadaNoOrdenada<NodoArbolBinario<T>> aux = new ListaEnlazadaNoOrdenada();
+        aux.addToFront(raiz);
+        while(!aux.isEmpty()){ 
+                arbol.addToRear(aux.first());
+            if(aux.first().tieneHijoIzquierdo()){
+                aux.addToRear(aux.first().getHijoIzquierdo());
+            }
+            if(aux.first().tieneHijoDerecho()){
+                aux.addToRear(aux.first().getHijoDerecho());
+            }
+            aux.removeFirst();
+        } //Llenar la lista con todos los elementos del arbol.
+        
+        ListaEnlazadaNoOrdenada<T> nodosNivel = new ListaEnlazadaNoOrdenada();
+        NodoArbolBinario <T> auxnodo;
+        if (nivel == 0){
+            nodosNivel.addToRear(raiz.getValor());
+            return nodosNivel;
+        }
+        arbol.removeFirst(); //remuevo la raiz.
+        if (nivel >= 1) {
+            while (!arbol.isEmpty()){
+                auxnodo = arbol.first();
+                if (profundidad(auxnodo) == nivel){
+                    nodosNivel.addToRear(auxnodo.getValor());
+                }
+                arbol.removeFirst();
+            }          
+        }
+      return nodosNivel;
     }
-
+    
+    public int profundidad (NodoArbolBinario <T> nodo) {
+        int profundidad = 0;
+        if (nodo != raiz){
+            profundidad = 1 + profundidad(padre(nodo));
+        }
+        return profundidad;
+    }
+    
+    
+    
+    
 }
