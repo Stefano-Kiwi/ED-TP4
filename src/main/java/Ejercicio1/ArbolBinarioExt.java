@@ -3,7 +3,7 @@ package Ejercicio1;
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.ArbolBinario;
 import ar.edu.uner.fcad.ed.arbolesbinariosyheaps.NodoArbolBinario;
 import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
-import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
+
 import ar.edu.uner.fcad.ed.edlineales.iteradores.Iterador;
 
 public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioExtInterfaz<T> {
@@ -24,9 +24,11 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
         boolean hermano = false;
         if (nodo1.equals(nodo2)){
             hermano = true;
-        {
+        }
        return hermano;
+    
     }
+    
        
 
     @Override
