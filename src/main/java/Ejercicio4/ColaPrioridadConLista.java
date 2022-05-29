@@ -1,12 +1,15 @@
-package Ejercicio3;
+package Ejercicio4;
 
-import Ejercicio4.ColaElementoColaPrioridad;
-import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaOrdenada;
+import Ejercicio3.ColaPrioridadInterfaz;
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
 import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 
-
-public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInterfaz<T>{
-    protected ListaEnlazadaOrdenada<ColaElementoColaPrioridad<T>> lista = new ListaEnlazadaOrdenada<>(); 
+/**
+ *
+ * @author stefa
+ */
+public class ColaPrioridadConLista<T extends Comparable<T>> implements ColaPrioridadInterfaz<T> {
+    protected ListaEnlazadaNoOrdenada<ColaElementoColaPrioridad<T>> lista = new ListaEnlazadaNoOrdenada<>(); 
     
     @Override
     public void insert(int prioridad, T element) {
@@ -21,7 +24,7 @@ public class ColaPrioridad<T extends Comparable<T>> implements ColaPrioridadInte
         if(!existePrioridad){
             ColaPorEnlaces<T> nuevaCola = new ColaPorEnlaces<T>();
             nuevaCola.enqueue(element);
-            lista.add(new ColaElementoColaPrioridad(prioridad, nuevaCola));
+            lista.addToFront(new ColaElementoColaPrioridad(prioridad, nuevaCola));
         }
     }
 

@@ -1,4 +1,4 @@
-package Ejercicio3;
+package Ejercicio4;
 
 import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
 import java.util.Objects;
@@ -8,7 +8,7 @@ import java.util.Objects;
  * @author stefa
  */
 public class ColaElementoColaPrioridad<T> implements Comparable<ColaElementoColaPrioridad<T>> {
-
+    
    private int prioridad;
    private ColaPorEnlaces<T> cola;
 
