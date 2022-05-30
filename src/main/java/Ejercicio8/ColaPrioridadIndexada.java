@@ -1,14 +1,51 @@
 package Ejercicio8;
 
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import ar.edu.uner.fcad.ed.edlineales.colas.ColaPorEnlaces;
+import ar.edu.uner.fcad.ed.edlineales.ListaEnlazadaNoOrdenada;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  *
  * @author stefa
  */
-public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrioridadIndexadaInterfaz<T>{
+public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrioridadIndexadaInterfaz<T> {
+
+    ListaEnlazadaNoOrdenada<ColaElementoIndiceColaPrioridad> lista = new ListaEnlazadaNoOrdenada();
 
     @Override
-    public void insert(int indice, T item) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void insert(T elemento, int prioridad, int indice) {
+        ElementoIndexado element = new ElementoIndexado(indice, elemento);
+        boolean existePrioridad = false;
+        for (int i = 0; i < lista.size(); i++) {
+            if (this.lista.get(i).getPrioridad() == prioridad) {
+                this.lista.get(i).getCola().enqueue(elemento);
+                existePrioridad = true;
+                break;
+            }
+        }
+        if (!existePrioridad) {
+            ColaPorEnlaces<ElementoIndexado> nuevaCola = new ColaPorEnlaces<>();
+            nuevaCola.enqueue(element);
+            lista.addToFront(new ColaElementoIndiceColaPrioridad(prioridad, nuevaCola));
+        }
+
+        this.ordenarPorPrioridad();
+    }
+
+    public void ordenarPorPrioridad() {
+        List<ColaElementoIndiceColaPrioridad<T>> listaAux = new ArrayList();
+        for (int i = 0; i < lista.size(); i++) {
+            listaAux.add(lista.get(i));
+        }
+        Collections.sort(listaAux);
+        ListaEnlazadaNoOrdenada<ColaElementoIndiceColaPrioridad> listaNueva = new ListaEnlazadaNoOrdenada<>();
+        for (int i = 0; i < listaAux.size(); i++) {
+            listaNueva.addToRear(listaAux.get(i));
+        }
+        lista = listaNueva;
     }
 
     @Override
@@ -23,8 +60,12 @@ public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrior
 
     @Override
     public void delete(int indice) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+          List<ElementoIndexado> aux = new ArrayList();
+           ElementoIndexado <T> auxnodo = new ElementoIndexado();
+        for (int i = 0; i < lista.size(); i++){
+                    lista.get(i).getCola().dequeue();      
+             }
+        }
 
     @Override
     public T min() {
@@ -38,13 +79,27 @@ public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrior
 
     @Override
     public boolean isEmpty() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return lista.isEmpty();
     }
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int tamanio = 0;
+        List<ElementoIndexado> aux = new ArrayList();
+        for (int i = 0; i < lista.size(); i++) {
+            while (!lista.get(i).getCola().isEmpty()) {
+                aux.add((ElementoIndexado) lista.get(i).getCola().getFront());
+                lista.get(i).getCola().dequeue();
+            }
+            tamanio += aux.size();
+            for (int y = 0; y < aux.size(); y++) {
+                lista.get(i).getCola().enqueue(aux.get(y));
+            }
+            aux.clear();
+        }
+
+        return tamanio;
     }
 
-    
 }
+
