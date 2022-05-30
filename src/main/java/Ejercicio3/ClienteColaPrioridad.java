@@ -20,7 +20,7 @@ public class ClienteColaPrioridad {
         System.out.println("El valor maximo es:"+colaArray.max());
         colaArray.deleteMax();
         System.out.println("El nuevo valor maximo es:"+colaArray.max());
-        System.out.println("La cola luego de borrar el elemento con maxima prioridad: "+colaArray);
+        System.out.println("toString: "+colaArray);
         
         
         
