@@ -54,16 +54,16 @@ public class ArbolBinarioExtCliente {
         arbolito.agregarHijoIzquierdo(nodo7, nodo14);
         arbolito.agregarHijoDerecho(nodo7, nodo15);
         
-         arbolito.agregarHijoDerecho(nodo15, nodo16);
+        arbolito.agregarHijoDerecho(nodo15, nodo16);
         
         
         System.out.println("ARBOL: "+arbolito);
         System.out.println("Size: "+arbolito.size());
         System.out.println("RAIZ: "+arbolito.raiz());
-        System.out.println("Hermanos: "+arbolito.hermanos(arbolito.padre(nodo2),arbolito.padre(nodo15)));
+        System.out.println("Hermanos: "+arbolito.hermanos(arbolito.padre(nodo11),arbolito.padre(nodo10)));
         System.out.println("Nodos hojas: "+arbolito.hojas());
         System.out.println("Nodos internos: "+arbolito.internos());
-        System.out.println("Nodos en el nivel 3: "+arbolito.nivel(3));
+        System.out.println("Nodos en el nivel 4: "+arbolito.nivel(4));
 
     }
 }

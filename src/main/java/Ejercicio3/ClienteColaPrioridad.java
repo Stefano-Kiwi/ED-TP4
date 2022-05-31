@@ -39,7 +39,7 @@ public class ClienteColaPrioridad {
      colaLista.insert(3, "bulbasaur");
      colaLista.insert(4, "wartortle");
      colaLista.insert(4, "blastoise");
-       
+        
         System.out.println("ColaLista: "+colaLista); // SE IMPRIMEN NUMEROS DEBIDO AL METODO .get() de ListaEnlazadaNoOrdenada
         System.out.println("Cantidad de elementos en colaLista:"+colaLista.size());
         System.out.println("Elemento con mayor prioridad: "+colaLista.max());

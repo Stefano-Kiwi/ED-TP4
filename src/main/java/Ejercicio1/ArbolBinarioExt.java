@@ -115,9 +115,5 @@ public class ArbolBinarioExt<T> extends ArbolBinario<T> implements ArbolBinarioE
             profundidad = 1 + profundidad(padre(nodo));
         }
         return profundidad;
-    }
-    
-    
-    
-    
+    }   
 }
