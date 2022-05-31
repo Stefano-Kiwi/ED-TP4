@@ -25,5 +25,8 @@ public class ClienteColaPrioridadIndezada {
     cola.insert("Oso", 5, 13); //elemento,prioridad,indice.
     cola.insert("Torta", 6, 14); //elemento,prioridad,indice.
     cola.insert("Te", 2, 15); //elemento,prioridad,indice.
+    System.out.println("Cola"+cola);
+    System.out.println("Tamaño: "+cola.size());
+    
     }   
 }

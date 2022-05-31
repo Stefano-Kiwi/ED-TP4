@@ -17,7 +17,7 @@ public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrior
 
     @Override
     public void insert(T elemento, int prioridad, int indice) {
-        ElementoIndexado element = new ElementoIndexado(indice, elemento);
+        var element = new ElementoIndexado(indice, elemento);
         boolean existePrioridad = false;
         for (int i = 0; i < lista.size(); i++) {
             if (this.lista.get(i).getPrioridad() == prioridad) {
@@ -85,21 +85,22 @@ public class ColaPrioridadIndexada<T extends Comparable<T>> implements ColaPrior
     @Override
     public int size() {
         int tamanio = 0;
-        List<ElementoIndexado> aux = new ArrayList();
+        ListaEnlazadaNoOrdenada<ColaElementoIndiceColaPrioridad> aux = new ListaEnlazadaNoOrdenada();
+        aux=lista; 
         for (int i = 0; i < lista.size(); i++) {
-            while (!lista.get(i).getCola().isEmpty()) {
-                aux.add((ElementoIndexado) lista.get(i).getCola().getFront());
-                lista.get(i).getCola().dequeue();
+            while (!aux.get(i).getCola().isEmpty()) {
+                tamanio++;
+                aux.get(i).getCola().dequeue();
             }
-            tamanio += aux.size();
-            for (int y = 0; y < aux.size(); y++) {
-                lista.get(i).getCola().enqueue(aux.get(y));
-            }
-            aux.clear();
         }
-
         return tamanio;
     }
+
+    @Override
+    public String toString() {
+        return "ColaPrioridadIndexada{" + "lista=" + lista + '}';
+    }
+    
 
 }
 
