@@ -5,8 +5,8 @@ package Ejercicio8;
  * @author stefa
  */
 public interface ColaPrioridadIndexadaInterfaz<T extends Comparable<T>> {
-    /** Inserta un elemento en la estructura*/
-    public void insert (int indice, T item);
+   /** Inserta un elemento en la estructura*/
+ public void insert(T elemento, int prioridad, int indice);
     /** Cambia el elemento ubicado en la posición indicada por índice.*/
     public void change (int indice, T item);
     /** Indica si existe un elemento con igual índice al pasado por parámetro.*/

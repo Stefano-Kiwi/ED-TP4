@@ -6,13 +6,21 @@ import Ejercicio4.*;
 public class ClienteColaPrioridad {
     public static void main(String[] args) {
         // ESTO PARA LA COLA PRIORIDAD HECHA CON ARRAY
-//        
-//        ColaPrioridad cola = new ColaPrioridad();
-//        System.out.println("Esta vacia? "+ cola.isEmpty());
-//        cola.insert(10, "arbol");
-//        System.out.println("Esta vacia? "+ cola.isEmpty());
-//        
+        System.out.println("---------- Cola de Prioridad hecha con Array Desordenado: ------------");
+
         
+        ColaPrioridad colaArray = new ColaPrioridad();
+        System.out.println("Esta vacia? "+ colaArray.isEmpty());
+        colaArray.insert(10, "arbol");
+        colaArray.insert(5, "auto");
+        colaArray.insert(16, "Mbappe");
+        colaArray.insert(1, "gato");
+        System.out.println("Tamanio de la cola:");
+        System.out.println("toString: "+colaArray);
+        System.out.println("El valor maximo es:"+colaArray.max());
+        colaArray.deleteMax();
+        System.out.println("El nuevo valor maximo es:"+colaArray.max());
+        System.out.println("toString: "+colaArray);
         
         
         
@@ -20,13 +28,15 @@ public class ClienteColaPrioridad {
         
     
         
+
+
         
         // ESTO PARA LA COLA PRIORIDAD HECHA CON LISTA NO ORDENADA
-        
+        System.out.println("---------- Cola de Prioridad hecha con Lista No Ordenada: ------------");
      ColaPrioridadConLista colaLista = new ColaPrioridadConLista();
      colaLista.insert(1, "pikachu");
      colaLista.insert(1, "pichu");
-     colaLista.insert(10, "voltorb");
+     colaLista.insert(11, "voltorb");
      colaLista.insert(10, "arcanine");
      colaLista.insert(20, "eevee");
      colaLista.insert(20, "flareon");
